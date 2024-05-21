@@ -76,7 +76,7 @@ if __name__ == "__main__":
     pdf_path = sys.argv[1]
     images = convert_pdf_to_jpg(pdf_path)
     descriptions = []
-    for i, image in enumerate(images):
+    for i, image in enumerate(images[:2]):
         base64_image = encode_image(image)
         response = img_qa(base64_image)
         descriptions.append(f"Page {i+1}: {response['choices'][0]['message']['content']}")
